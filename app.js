@@ -26,11 +26,11 @@
 
 // 본인의 Supabase 프로젝트 URL
 const SUPABASE_URL =
-  "YOUR_SUPABASE_PROJECT_URL";
+  "https://ptkvnqokpbzuhefkrggm.supabase.co/functions/v1/smooth-endpoint";
 
 // Supabase Publishable Key
 const SUPABASE_PUBLISHABLE_KEY =
-  "YOUR_SUPABASE_PUBLISHABLE_KEY";
+  "sb_publishable_BM8r92E4XJhObvGP-w--jg_XOOxAyfg";
 
 // Edge Function 이름
 const FUNCTION_NAME = "exaone-chat";
