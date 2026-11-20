@@ -15,7 +15,7 @@
 // 아래 두 값을 본인의 Supabase 정보로 변경하세요.
 
 // 예시: https://abcdefghijklmnop.supabase.co
-const SUPABASE_URL = "https://ptkvnqokpbzuhefkrggm.supabase.co";
+const SUPABASE_URL = "https://ptkvnqokpbzuhefkrggm.supabase.co/functions/v1/smooth-endpoint";
 
 // Settings -> API Keys -> Publishable key
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_BM8r92E4XJhObvGP-w--jg_XOOxAyfg";
