@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f6f8">
+  <title>K-EXAONE 2.5 챗봇</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-container">
+
+    <!-- 상단 메뉴 -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">AI</div>
+        <div class="header-title">
+          <h1>K-EXAONE 2.5</h1>
+          <span>AI Chat Assistant</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button id="settingsBtn" class="icon-btn" title="설정">
+          ⚙
+        </button>
+        <button id="newChatBtn" class="new-chat-btn">
+          + 새 대화
+        </button>
+      </div>
+    </header>
+
+    <!-- 본문 -->
+    <main class="main-container">
+
+      <!-- 대화 영역 -->
+      <section class="chat-area" id="chatArea">
+
+        <!-- 최초 안내 화면 -->
+        <div id="welcomeScreen" class="welcome-screen">
+          <div class="welcome-icon">AI</div>
+          <h2>무엇을 도와드릴까요?</h2>
+          <p>
+            K-EXAONE 2.5 기반 AI 챗봇입니다.<br>
+            궁금한 내용을 입력해 주세요.
+          </p>
+        </div>
+
+        <!-- 대화 메시지가 표시되는 영역 -->
+        <div id="messageList" class="message-list"></div>
+
+      </section>
+
+      <!-- 입력 영역 -->
+      <footer class="input-area">
+
+        <div class="input-wrapper">
+          <textarea
+            id="messageInput"
+            placeholder="질문을 입력하세요. (Enter: 전송 / Shift+Enter: 줄바꿈)"
+            rows="1"
+          ></textarea>
+
+          <button id="sendBtn" class="send-btn" title="전송">
+            ➤
+          </button>
+        </div>
+
+        <div class="input-bottom">
+          <span id="statusText">준비 완료</span>
+          <span>K-EXAONE 2.5</span>
+        </div>
+
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- 설정 창 -->
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h2>AI 응답 설정</h2>
+        <button id="closeSettingsBtn" class="close-btn">×</button>
+      </div>
+
+      <div class="setting-item">
+        <label for="reasoningEffort">추론 수준</label>
+        <select id="reasoningEffort">
+          <option value="low" selected>Low - 빠른 응답</option>
+          <option value="high">High - 깊이 있는 추론</option>
+          <option value="max">Max - 최대 추론</option>
+        </select>
+      </div>
+
+      <div class="setting-item">
+        <label for="maxTokens">
+          최대 출력 토큰
+          <span id="maxTokensValue">2048</span>
+        </label>
+        <input
+          type="range"
+          id="maxTokens"
+          min="128"
+          max="8192"
+          step="128"
+          value="2048"
+        >
+      </div>
+
+      <div class="setting-item">
+        <label for="temperature">
+          Temperature
+          <span id="temperatureValue">1.0</span>
+        </label>
+        <input
+          type="range"
+          id="temperature"
+          min="0"
+          max="2"
+          step="0.1"
+          value="1.0"
+        >
+      </div>
+
+      <div class="setting-item">
+        <label>Top P</label>
+        <div class="setting-description">
+          0.95 (기본값)
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="saveSettingsBtn" class="save-btn">
+          설정 저장
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>
