@@ -458,13 +458,13 @@ async function sendMessage() {
      }
    
      // 로딩 표시 제거
-     loadingElement.remove();
+     //loadingElement.remove();
    
      // 실제 답변 말풍선 생성
-     const messageElement =
-       createMessageElement("assistant", "");
+     //const messageElement =
+     //  createMessageElement("assistant", "");
    
-     assistantBubble = messageElement.bubble;
+     //assistantBubble = messageElement.bubble;
    }
 
     // 스트리밍 읽기
