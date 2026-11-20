@@ -636,3 +636,26 @@ button:disabled {
     max-width: 88%;
   }
 }
+
+/* EXAONE 답변 생성 중 점 3개 */
+
+.loading-dots {
+  display: inline-block;
+  min-width: 28px;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1.5;
+  animation: loadingDots 1.2s infinite ease-in-out;
+}
+
+@keyframes loadingDots {
+  0%, 100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
