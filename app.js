@@ -460,14 +460,22 @@ async function sendMessage() {
       throw new Error("서버에서 스트리밍 응답을 받지 못했습니다.");
     }
 
-    // 로딩 표시 제거
-    loadingElement.remove();
-
-    // 실제 답변 말풍선 생성
-    const messageElement =
-      createMessageElement("assistant", "");
-
-    assistantBubble = messageElement.bubble;
+   // 실제 답변이 도착하면 로딩 말풍선을 답변 말풍선로 변경
+   function showAssistantBubble() {
+   
+     if (assistantBubble) {
+       return;
+     }
+   
+     // 로딩 표시 제거
+     loadingElement.remove();
+   
+     // 실제 답변 말풍선 생성
+     const messageElement =
+       createMessageElement("assistant", "");
+   
+     assistantBubble = messageElement.bubble;
+   }
 
     // 스트리밍 읽기
     const reader = response.body.getReader();
@@ -552,16 +560,19 @@ async function sendMessage() {
 
         const content = delta.content;
 
-        if (typeof content === "string" && content.length > 0) {
-
-          assistantText += content;
-
-          assistantBubble.textContent = assistantText;
-
-          receivedContent = true;
-
-          scrollToBottom();
-        }
+         if (typeof content === "string" && content.length > 0) {
+         
+           // 첫 답변이 도착한 시점에만 로딩 표시 제거
+           showAssistantBubble();
+         
+           assistantText += content;
+         
+           assistantBubble.textContent = assistantText;
+         
+           receivedContent = true;
+         
+           scrollToBottom();
+         }
       }
     }
 
@@ -579,14 +590,16 @@ async function sendMessage() {
           const content =
             parsed.choices?.[0]?.delta?.content;
 
-          if (typeof content === "string" && content.length > 0) {
-
-            assistantText += content;
-
-            assistantBubble.textContent = assistantText;
-
-            receivedContent = true;
-          }
+            if (typeof content === "string" && content.length > 0) {
+            
+              showAssistantBubble();
+            
+              assistantText += content;
+            
+              assistantBubble.textContent = assistantText;
+            
+              receivedContent = true;
+            }
 
         } catch (error) {
 
