@@ -260,42 +260,32 @@ function createMessageElement(role, content = "") {
    10. 로딩 표시
 ========================================= */
 
+
 function createLoadingElement() {
 
   const row = document.createElement("div");
-
   row.className = "message-row assistant";
 
   const avatar = document.createElement("div");
-
   avatar.className = "message-avatar";
   avatar.textContent = "AI";
 
   const content = document.createElement("div");
-
   content.className = "message-content";
 
   const name = document.createElement("div");
-
   name.className = "message-name";
   name.textContent = "K-EXAONE 2.5";
 
   const bubble = document.createElement("div");
-
   bubble.className = "message-bubble";
 
-  const indicator = document.createElement("div");
+  // 실제 점 3개를 표시
+  const dots = document.createElement("span");
+  dots.className = "loading-dots";
+  dots.textContent = "...";
 
-  indicator.className = "typing-indicator";
-
-  for (let i = 0; i < 3; i++) {
-
-    const dot = document.createElement("span");
-
-    indicator.appendChild(dot);
-  }
-
-  bubble.appendChild(indicator);
+  bubble.appendChild(dots);
 
   content.appendChild(name);
   content.appendChild(bubble);
